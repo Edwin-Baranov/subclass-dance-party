@@ -21,9 +21,27 @@ $(document).ready(function() {
     var dancerMakerFunction = window[dancerMakerFunctionName];
 
     // make a dancer with a random position
+    var danceHeight = function() {
+      var downPercentage = 0.70
+      var danceSpace = $("body").height() * (1 - downPercentage);
+      danceSpace *= Math.random();
+      danceSpace += ($("body").height() * downPercentage);
+      return danceSpace
+    }
 
     var dancer = new dancerMakerFunction(
-      $("body").height() * Math.random(),
+      // var danceSpace = $("body").height() * 0.4;
+      // danceSpace *= Math.random();
+      // danceSpace += ($("body").height() * 0.60);
+
+      //height(100%) - height(60%) = 40 * math.random
+      // 60% height - 100%
+      //Math.floor(Math.random() * (100% - 60% + 1) + 60*);
+      //Math.floor(Math.random() * ( - 60% + 1) + 60*);,
+      //Math.floor(Math.random() * ( $('body').height() - $('body').height() * .6) + 1)
+
+
+      danceHeight(),
       $("body").width() * Math.random(),
       Math.random() * 900 + 100
     );

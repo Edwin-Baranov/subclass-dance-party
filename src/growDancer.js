@@ -1,7 +1,6 @@
 var GrowDancer = function (top, left, timeBetweenSteps) {
-  Dancer.call(this, top, left, timeBetweenSteps);
-  this.timeBetweenSteps = 1000;
   this.state = 'small';
+  Dancer.call(this, top, left, 1000);
 }
 
 GrowDancer.prototype = Object.create(Dancer.prototype);
@@ -9,7 +8,6 @@ GrowDancer.prototype.constructor = GrowDancer;
 
 GrowDancer.prototype.step = function () {
   Dancer.prototype.step.call(this);
-
   if (this.state === 'small') {
     this.$node.animate({
       height : "1%"
